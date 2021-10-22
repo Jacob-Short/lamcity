@@ -56,6 +56,8 @@ class RegisterView(View):
                 last_name=data.get("last_name"),
                 email=data.get("email"),
                 password=data.get("password"),
+                school=data.get("school"),
+                occupation=data.get("occupation"),
             )
 
             # to send user email confirmation
@@ -152,6 +154,7 @@ class EditProfile(View):
 
     def get(self, request, id):
 
+        template = 'generic_form.html'
         signed_in_user = request.user
         profile_user = UserAccount.objects.get(id=id)
         form = EditAccountForm(
@@ -170,7 +173,7 @@ class EditProfile(View):
             "form": form,
             "profile_user": profile_user,
         }
-        return render(request, "generic_template.html", context)
+        return render(request, template, context)
 
     def post(self, request, id):
 
@@ -187,6 +190,8 @@ class EditProfile(View):
                 profile_user.picture = data["picture"]
                 profile_user.bio = data["bio"]
                 profile_user.password = data["password"]
+                profile_user.school = data["school"]
+                profile_user.occupation = data["occupation"]
                 profile_user.save()
                 messages.add_message(
                     request,

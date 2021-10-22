@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Detail</title>
+  </head>
+
+  
+    {% block content %}
+    <body>
+        <h2>Profile Page</h2>
+        <div class="card" style="width: 18rem;">
+          <img src="{{ target_user.picture }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ target_user }}</h5>
+            <p class="card-text">Bio: {{ target_user.bio }}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Email: {{ tagret_user.email }}</li>
+            <li class="list-group-item">School: {{ tagret_user.school }}</li>
+            <li class="list-group-item">Occupation: {{ tagret_user.occupation }}</li>
+            <li class="list-group-item">isNew: {{ target_user.isNew }}<li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Messages</a>
+            <a href="#" class="card-link">My posts</a>
+            <a href="/edit_profile/{{signed_in_user.id }}" class="card-link">Edit Profile</a>
+            <a href="#" class="card-link">Preferences</a>
+          </div>
+        </div>
+    </body>
+    {% endblock %}
+  </body>
+  </html>

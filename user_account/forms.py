@@ -14,6 +14,9 @@ class RegisterForm(forms.Form):
     last_name = forms.CharField(max_length=150)
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
+    school = forms.CharField(max_length=150)
+    occupation = forms.CharField(max_length=150)
+
 
 
 class EditAccountForm(forms.Form):
@@ -24,3 +27,5 @@ class EditAccountForm(forms.Form):
     picture = forms.ImageField(required=False)
     bio = forms.CharField(widget=forms.Textarea)
     password = forms.CharField(widget=forms.PasswordInput)
+    school = forms.CharField(max_length=150)
+    occupation = forms.CharField(max_length=150)
