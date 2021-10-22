@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from lamcity import views
+
+
+from user_account.urls import urlpatterns as user_account_urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index_view),
 ]
+
+urlpatterns += user_account_urls
+
